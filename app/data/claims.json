@@ -1,0 +1,47 @@
+[
+  {
+    "member_id": "M002",
+    "date": "2024-07-12",
+    "provider": "Dr. Marcus Reed, OD",
+    "service": "WellVision Exam + frames + lenses",
+    "plan_paid": 338,
+    "member_paid": 74,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M005",
+    "date": "2026-02-08",
+    "provider": "Dr. Rachel Torres, OD",
+    "service": "WellVision Exam + contact lens fitting + contacts",
+    "plan_paid": 285,
+    "member_paid": 100,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M006",
+    "date": "2026-01-06",
+    "provider": "Dr. Ellen Whitfield, OD",
+    "service": "WellVision Exam + retinal imaging (diabetes)",
+    "plan_paid": 253,
+    "member_paid": 15,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M006",
+    "date": "2026-04-02",
+    "provider": "Dr. Ellen Whitfield, OD",
+    "service": "Essential Medical Eye Care exam (dry eye)",
+    "plan_paid": 165,
+    "member_paid": 20,
+    "status": "Pending"
+  },
+  {
+    "member_id": "M004",
+    "date": "2026-06-15",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 165,
+    "status": "Processed (OON reimbursement)"
+  }
+]

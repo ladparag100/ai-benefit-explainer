@@ -1,0 +1,101 @@
+[
+  {
+    "id": "P01",
+    "name": "Dr. Rachel Torres, OD",
+    "type": "Private practice",
+    "address": "225 N Michigan Ave, Chicago",
+    "distance_mi": 0.4,
+    "in_network_plans": ["Signature", "Choice", "Advantage", "Enhanced Advantage"],
+    "next_available": "Tue"
+  },
+  {
+    "id": "P02",
+    "name": "Dr. Marcus Reed, OD",
+    "type": "Private practice",
+    "address": "1030 W Randolph St, Chicago",
+    "distance_mi": 1.1,
+    "in_network_plans": ["Signature", "Choice"],
+    "next_available": "Thu"
+  },
+  {
+    "id": "P03",
+    "name": "Visionworks - The Loop",
+    "type": "Retail",
+    "address": "150 N State St, Chicago",
+    "distance_mi": 0.6,
+    "in_network_plans": ["Signature"],
+    "next_available": "Same day"
+  },
+  {
+    "id": "P04",
+    "name": "Eyemart Express - River North",
+    "type": "Retail",
+    "address": "500 N Wells St, Chicago",
+    "distance_mi": 0.9,
+    "in_network_plans": ["Signature"],
+    "next_available": "Same day"
+  },
+  {
+    "id": "P05",
+    "name": "Costco Optical - Lincoln Park",
+    "type": "Retail",
+    "address": "2746 N Clybourn Ave, Chicago",
+    "distance_mi": 3.2,
+    "in_network_plans": ["Signature", "Choice", "Advantage", "Enhanced Advantage"],
+    "next_available": "Fri"
+  },
+  {
+    "id": "P06",
+    "name": "Walmart Vision Center",
+    "type": "Retail",
+    "address": "4626 W Diversey Ave, Chicago",
+    "distance_mi": 5.4,
+    "in_network_plans": ["Signature", "Choice", "Advantage", "Enhanced Advantage"],
+    "next_available": "Wed"
+  },
+  {
+    "id": "P07",
+    "name": "Dr. Ellen Whitfield, OD",
+    "type": "Private practice",
+    "address": "875 N Michigan Ave, Chicago",
+    "distance_mi": 0.8,
+    "in_network_plans": ["Signature", "Choice", "Enhanced Advantage"],
+    "next_available": "Full"
+  },
+  {
+    "id": "P08",
+    "name": "Dr. Aaron Brooks, OD",
+    "type": "Private practice",
+    "address": "3145 N Broadway, Chicago",
+    "distance_mi": 4.1,
+    "in_network_plans": ["Choice", "Advantage"],
+    "next_available": "Mon"
+  },
+  {
+    "id": "P09",
+    "name": "LensCrafters - Water Tower",
+    "type": "Retail (OON)",
+    "address": "835 N Michigan Ave, Chicago",
+    "distance_mi": 0.9,
+    "in_network_plans": [],
+    "next_available": null
+  },
+  {
+    "id": "P10",
+    "name": "Pearle Vision - Wicker Park",
+    "type": "Retail (OON)",
+    "address": "1439 N Milwaukee Ave, Chicago",
+    "distance_mi": 2.6,
+    "in_network_plans": [],
+    "next_available": null
+  },
+  {
+    "id": "P11",
+    "name": "Warby Parker - Gold Coast",
+    "type": "Retail (OON)",
+    "address": "1013 N Rush St, Chicago",
+    "distance_mi": 1.2,
+    "in_network_plans": [],
+    "next_available": null
+  }
+]

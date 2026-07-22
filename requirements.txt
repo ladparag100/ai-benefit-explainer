@@ -1,0 +1,20 @@
+# Google-first stack. Versions are intentionally unpinned -- google-adk and
+# google-genai move quickly. Run `pip install -U -r requirements.txt`, confirm
+# things work, then `pip freeze > requirements.lock.txt` if you want to pin.
+
+google-adk
+google-genai
+google-cloud-trace
+google-cloud-logging
+python-dotenv
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-exporter-gcp-trace
+
+chromadb
+
+streamlit
+reportlab
+pydantic
+
+pytest

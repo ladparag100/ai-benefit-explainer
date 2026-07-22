@@ -1,0 +1,56 @@
+{
+  "Signature": {
+    "network": "VSP Signature (Premier Edge)",
+    "exam_copay": 10,
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "premium_progressive_lenses": "80-90",
+    "enhancements_discount": "up to 40%",
+    "oon_exam_reimbursement": 50,
+    "frequency": "Calendar year"
+  },
+  "Choice": {
+    "network": "VSP Choice",
+    "exam_copay": 15,
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "premium_progressive_lenses": "95-105",
+    "enhancements_discount": "30%",
+    "oon_exam_reimbursement": 45,
+    "frequency": "Calendar year"
+  },
+  "Advantage": {
+    "network": "VSP Advantage",
+    "exam_copay": 20,
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "premium_progressive_lenses": "95-105",
+    "enhancements_discount": "20-25%",
+    "oon_exam_reimbursement": 45,
+    "frequency": "Calendar year"
+  },
+  "Enhanced Advantage": {
+    "network": "VSP Advantage",
+    "exam_copay": 15,
+    "frame_allowance": 220,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 180,
+    "premium_progressive_lenses": "95-105",
+    "enhancements_discount": "30%",
+    "oon_exam_reimbursement": 45,
+    "frequency": "Calendar year"
+  },
+  "common_features": [
+    "WellVision Exam every calendar year",
+    "Essential Medical Eye Care ($20 per exam)",
+    "Prescription glasses coverage: frame + lenses with plan copay",
+    "Contacts in lieu of glasses (one or the other per benefit period)",
+    "VSP EasyOptions: one upgrade per period",
+    "VSP LightCare: allowance for non-Rx sunglasses or blue light glasses",
+    "20% off additional eyewear from a VSP provider within 12 months of last exam",
+    "15% off Laser Vision Correction at contracted facilities"
+  ]
+}
