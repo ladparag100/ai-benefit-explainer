@@ -36,6 +36,7 @@ load_dotenv(REPO_ROOT / ".env")
 os.environ.setdefault("PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION", "python")
 
 DATA_DIR = APP_DIR / "data"
+FRAMES_DIR = DATA_DIR / "frames"
 KNOWLEDGE_DIR = APP_DIR / "rag" / "knowledge"
 PROMPTS_DIR = APP_DIR / "prompts"
 

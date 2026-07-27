@@ -107,9 +107,17 @@ def generate_id_card_pdf(tool_context: ToolContext, dependent_name: Optional[str
     # Streamlit UI can't find it there to render a download button. Writing
     # it to session state instead works because AgentTool explicitly
     # forwards every nested event's state_delta up into the parent's
-    # ToolContext.state, regardless of nesting depth. "temp:" keeps it
-    # scoped to this turn rather than lingering in later turns.
+    # ToolContext.state, regardless of nesting depth.
+    #
+    # Deliberately NOT using a "temp:" prefix here: the installed google-adk
+    # session service strips temp-prefixed keys out of event.actions.state_delta
+    # as soon as *any* Runner (including the nested one AgentTool spins up for
+    # this specialist) processes the event -- before AgentTool's own forwarding
+    # loop ever sees it. That makes a temp-scoped key unrecoverable at every
+    # level, not just the outermost one. A plain key survives forwarding;
+    # app/main.py pops it out of session state right after reading it each
+    # turn, so it still can't leak into a later, unrelated turn.
     if "file_path" in result:
-        tool_context.state["temp:pdf_path"] = result["file_path"]
+        tool_context.state["pdf_path"] = result["file_path"]
 
     return result
