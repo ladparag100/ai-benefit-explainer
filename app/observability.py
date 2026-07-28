@@ -26,6 +26,8 @@ import logging
 from dataclasses import dataclass
 from typing import Any
 
+from app.guardrails import redact_pii
+
 logger = logging.getLogger("vsp.observability")
 
 _configured = False
@@ -149,11 +151,14 @@ def trace_turn(
         except Exception:
             logger.warning("Failed to emit Cloud Trace span for turn.", exc_info=True)
 
+    # Redacted before it ever reaches Cloud Logging -- member questions
+    # routinely include their own name or contact info in free text, and
+    # that shouldn't sit in plaintext in a Google-side log store.
     log_payload = {
         "session_id": session_id,
         "member_id": member_id,
-        "user_message": user_message,
-        "final_text": final_text,
+        "user_message": redact_pii(user_message),
+        "final_text": redact_pii(final_text),
         "elapsed_ms": elapsed_ms,
         "tool_calls": [{"agent": c.agent, "tool": c.tool, "args": c.args, "ok": c.ok} for c in calls],
     }

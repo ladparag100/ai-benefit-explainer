@@ -35,6 +35,7 @@ from app.config import APP_NAME, DATA_DIR
 from app.frames import (
     FACE_SHAPES,
     RECOMMENDATION_LIMIT,
+    frame_cost_breakdown,
     frame_image_path,
     get_frames_for_face_shape,
     is_frame_request,
@@ -78,22 +79,33 @@ async def _run_turn_async(runner, session_service, user_id, session_id, member_i
     async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=content):
         events.append(event)
 
-    # generate_id_card_pdf (app/tools/id_card.py) stashes the PDF path in
-    # session state rather than its return value -- see that file for why,
-    # and for why it's a plain key rather than "temp:"-prefixed. Reading it
+    # generate_id_card_pdf (app/tools/id_card.py) and handoff_to_human
+    # (app/tools/escalation.py) each stash their result in session state
+    # rather than their return value -- see those files for why. Reading
     # from the session (rather than scanning the events above for it) and
-    # popping it means a stale path can't leak into a later, unrelated turn
-    # that never calls generate_id_card_pdf.
+    # popping means a stale value can't leak into a later, unrelated turn.
     session = await session_service.get_session(app_name=APP_NAME, user_id=user_id, session_id=session_id)
     pdf_path = session.state.pop("pdf_path", None)
+    escalation_ticket = session.state.pop("escalation_ticket", None)
 
-    return events, pdf_path
+    return events, pdf_path, escalation_ticket
 
 
 def run_turn(runner, session_service, user_id, session_id, member_id, user_text):
     return asyncio.run(
         _run_turn_async(runner, session_service, user_id, session_id, member_id, user_text)
     )
+
+
+def _md_safe(text: str) -> str:
+    """st.markdown/st.caption treat a matched pair of "$" as LaTeX math
+    delimiters (documented behavior, via KaTeX) -- agent replies routinely
+    contain several dollar amounts in one message (copays, allowances,
+    frame prices), which accidentally opens/closes math mode and renders
+    that stretch in KaTeX's font instead of the page's, often with broken
+    output. Escaping every literal "$" keeps dollar amounts as plain text
+    without touching intentional markdown like **bold** section headers."""
+    return text.replace("$", "\\$")
 
 
 def _event_text(event) -> str:
@@ -126,20 +138,27 @@ def _render_download(pdf_path: str, key: str) -> None:
     )
 
 
-def _render_frame_grid(frames: list) -> None:
+def _render_frame_grid(frames: list, member: dict) -> None:
     columns = st.columns(len(frames))
     for column, frame in zip(columns, frames):
         with column:
             st.image(str(frame_image_path(frame)), use_container_width=True)
             st.markdown(f"**{frame['name']}**")
             st.caption(f"{frame['style']} · {frame['material']}")
-            st.caption(f"${frame['price_usd']}")
+            st.caption(_md_safe(f"${frame['price_usd']}"))
+            breakdown = frame_cost_breakdown(frame, member)
+            if not breakdown["eligible"]:
+                st.caption(_md_safe(f"Frame allowance not available this period -- ${breakdown['out_of_pocket']} out of pocket"))
+            elif breakdown["fully_covered"]:
+                st.caption(_md_safe(f"Fully covered by your ${breakdown['allowance']} allowance"))
+            else:
+                st.caption(_md_safe(f"${breakdown['allowance']} allowance applied -- ${breakdown['out_of_pocket']} out of pocket"))
             st.caption(frame["description"])
 
 
-def _render_frame_picker(turn: dict, key: str) -> None:
+def _render_frame_picker(turn: dict, key: str, member: dict) -> None:
     with st.chat_message("assistant"):
-        st.markdown(turn["content"])
+        st.markdown(_md_safe(turn["content"]))
         face_shape = st.radio(
             "Face shape",
             FACE_SHAPES,
@@ -156,20 +175,30 @@ def _render_frame_picker(turn: dict, key: str) -> None:
             turn.setdefault("shown_count", RECOMMENDATION_LIMIT)
             matches = recommend_frames(face_shape)
             st.markdown(f"**Top {len(matches)} picks for a {face_shape.lower()} face**")
-            _render_frame_grid(matches)
+            _render_frame_grid(matches, member)
 
 
-def _render_more_frames(turn: dict) -> None:
+def _render_more_frames(turn: dict, member: dict) -> None:
     with st.chat_message("assistant"):
         frames = get_frames_for_face_shape(turn["face_shape"])[turn["start"] : turn["end"]]
         st.markdown(
             f"**{len(frames)} more pick{'s' if len(frames) != 1 else ''} "
             f"for a {turn['face_shape'].lower()} face**"
         )
-        _render_frame_grid(frames)
+        _render_frame_grid(frames, member)
         total = len(get_frames_for_face_shape(turn["face_shape"]))
         if turn["end"] >= total:
             st.caption("That's the full catalog for this face shape.")
+
+
+def _render_escalation_callout(ticket: dict) -> None:
+    reason = str(ticket.get("reason") or "unspecified").replace("_", " ")
+    ticket_id = ticket.get("ticket_id", "unknown")
+    when = str(ticket.get("escalated_at") or "")[:19].replace("T", " ")
+    message = f"**Escalated to a human** — ticket `{ticket_id}` · reason: {reason}"
+    if when:
+        message += f" · logged {when} UTC"
+    st.info(message)
 
 
 def _handle_user_message(
@@ -178,6 +207,7 @@ def _handle_user_message(
     pipeline_text: str,
     *,
     member_id: str,
+    member: dict,
     generation: int,
     session_id: str,
     runner,
@@ -189,7 +219,7 @@ def _handle_user_message(
     voice message these can differ (see app/speech.py)."""
     chat_history.append({"role": "user", "content": display_text, "kind": "text"})
     with st.chat_message("user"):
-        st.markdown(display_text)
+        st.markdown(_md_safe(display_text))
 
     if is_more_frames_request(pipeline_text):
         # Continue pagination on the most recently active frame_picker turn
@@ -230,25 +260,27 @@ def _handle_user_message(
                     "end": new_shown,
                 }
                 chat_history.append(more_turn)
-                _render_more_frames(more_turn)
+                _render_more_frames(more_turn, member)
     elif is_frame_request(pipeline_text):
         # Deliberately not routed through the agent: a frame-shopping
         # question gets a deterministic catalog lookup driven by a radio
         # button, not an LLM call -- see app/frames.py.
         idx = len(chat_history)
-        content = "Sure -- what's your face shape? I'll pull matching frames from our catalog:"
+        content = "Sure -- what's your face shape? I'll pull matching frames from our catalog and show what your " \
+            f"${member['frame_allowance']} allowance covers:"
         turn = {"role": "assistant", "kind": "frame_picker", "content": content}
         chat_history.append(turn)
-        _render_frame_picker(turn, key=f"faceshape-{member_id}-{generation}-{idx}")
+        _render_frame_picker(turn, key=f"faceshape-{member_id}-{generation}-{idx}", member=member)
     else:
         with st.chat_message("assistant"):
             final_text = ""
             debug_info: dict = {}
             pdf_path = None
+            escalation_ticket = None
             with st.spinner("Thinking..."):
                 start = time.time()
                 try:
-                    events, pdf_path = run_turn(
+                    events, pdf_path, escalation_ticket = run_turn(
                         runner, session_service, st.session_state.user_id, session_id, member_id, pipeline_text
                     )
                     elapsed_ms = (time.time() - start) * 1000
@@ -277,9 +309,11 @@ def _handle_user_message(
                     )
                     debug_info = {"error": f"{type(exc).__name__}: {exc}"}
 
-            st.markdown(final_text)
+            st.markdown(_md_safe(final_text))
             if pdf_path:
                 _render_download(pdf_path, key=f"dl-new-{len(chat_history)}")
+            if escalation_ticket:
+                _render_escalation_callout(escalation_ticket)
             with st.expander("How this was answered"):
                 st.write(debug_info)
 
@@ -288,6 +322,7 @@ def _handle_user_message(
                 "role": "assistant",
                 "content": final_text,
                 "pdf_path": pdf_path,
+                "escalation_ticket": escalation_ticket,
                 "debug": debug_info,
                 "kind": "text",
             }
@@ -308,9 +343,6 @@ with st.sidebar:
         format_func=lambda mid: f"{MEMBERS[mid]['name']} -- {MEMBERS[mid]['plan']}",
     )
     member = MEMBERS[member_id]
-    st.caption(f"{member['coverage_type']} · effective {member['effective_date']}")
-    if member.get("situation"):
-        st.caption(f"Situation: {member['situation']}")
 
     if st.button("Clear this member's conversation"):
         st.session_state.setdefault("chats", {})[member_id] = []
@@ -334,15 +366,17 @@ runner, session_service = _get_runner_and_sessions()
 
 for idx, turn in enumerate(chat_history):
     if turn.get("kind") == "frame_picker":
-        _render_frame_picker(turn, key=f"faceshape-{member_id}-{generation}-{idx}")
+        _render_frame_picker(turn, key=f"faceshape-{member_id}-{generation}-{idx}", member=member)
         continue
     if turn.get("kind") == "frame_more":
-        _render_more_frames(turn)
+        _render_more_frames(turn, member)
         continue
     with st.chat_message(turn["role"]):
-        st.markdown(turn["content"])
+        st.markdown(_md_safe(turn["content"]))
         if turn.get("pdf_path"):
             _render_download(turn["pdf_path"], key=f"dl-hist-{idx}")
+        if turn.get("escalation_ticket"):
+            _render_escalation_callout(turn["escalation_ticket"])
         if turn.get("debug"):
             with st.expander("How this was answered"):
                 st.write(turn["debug"])
@@ -366,7 +400,7 @@ if submission:
                 transcript = transcribe_audio(audio_file.getvalue(), getattr(audio_file, "type", None) or "audio/wav")
             except Exception as exc:  # noqa: BLE001 -- surface transcription failures without crashing the app
                 transcript = None
-                st.error(f"Voice transcription failed: {type(exc).__name__}: {exc}")
+                st.error(_md_safe(f"Voice transcription failed: {type(exc).__name__}: {exc}"))
         if transcript is not None:
             if transcript.is_empty:
                 st.warning("Sorry, I couldn't make out any speech in that recording -- please try again.")
@@ -381,6 +415,7 @@ if submission:
                     display_text,
                     pipeline_text,
                     member_id=member_id,
+                    member=member,
                     generation=generation,
                     session_id=session_id,
                     runner=runner,
@@ -392,6 +427,7 @@ if submission:
             submission.text,
             submission.text,
             member_id=member_id,
+            member=member,
             generation=generation,
             session_id=session_id,
             runner=runner,

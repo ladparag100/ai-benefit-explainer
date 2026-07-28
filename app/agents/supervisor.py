@@ -1,5 +1,6 @@
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
+from google.genai import types
 
 from app.agents.benefits_agent import benefits_agent
 from app.agents.billing_agent import billing_agent
@@ -8,6 +9,7 @@ from app.agents.escalation_agent import escalation_agent
 from app.agents.find_doctor_agent import find_doctor_agent
 from app.agents.id_card_agent import id_card_agent
 from app.config import PROMPTS_DIR, SUPERVISOR_MODEL
+from app.guardrails import SAFETY_SETTINGS, block_injection_callback
 
 SYSTEM_PROMPT = (PROMPTS_DIR / "system_prompt.md").read_text()
 
@@ -23,6 +25,8 @@ root_agent = Agent(
     model=SUPERVISOR_MODEL,
     description="Routes VSP member questions to the right specialist and composes the final answer.",
     instruction=SYSTEM_PROMPT,
+    generate_content_config=types.GenerateContentConfig(safety_settings=SAFETY_SETTINGS),
+    before_model_callback=block_injection_callback,
     tools=[
         AgentTool(agent=benefits_agent),
         AgentTool(agent=id_card_agent),

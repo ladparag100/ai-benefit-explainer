@@ -4,6 +4,9 @@ WORKDIR /srv/app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+# Presidio's NER-based PII detection (app/guardrails.py) needs a spaCy
+# language model on disk -- not installed by the spacy package itself.
+RUN python -m spacy download en_core_web_sm
 
 COPY app ./app
 

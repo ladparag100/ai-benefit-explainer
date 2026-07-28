@@ -3,12 +3,14 @@ import pytest
 from app.frames import (
     FACE_SHAPES,
     RECOMMENDATION_LIMIT,
+    frame_cost_breakdown,
     frame_image_path,
     get_frames_for_face_shape,
     is_frame_request,
     is_more_frames_request,
     recommend_frames,
 )
+from app.tools.members import get_member_profile_impl
 
 
 def test_every_face_shape_has_matches():
@@ -51,6 +53,14 @@ def test_every_frame_has_price_in_expected_range():
         "Recommend glasses for my face shape",
         "Help me pick frames",
         "Which frame style suits a round face?",
+        # Browse-style phrasings (no "suggest"/"recommend") -- reported as
+        # broken: these fell through to the agent, which has no frame
+        # catalog tool, redirected once, then escalated on the repeat.
+        "show me few frames",
+        "show frames",
+        "show me some frames",
+        "can I see some frames",
+        "let me browse frames",
     ],
 )
 def test_frame_shopping_questions_are_detected(text):
@@ -65,6 +75,12 @@ def test_frame_shopping_questions_are_detected(text):
         "Can I get my ID card?",
         "What's my copay for exams?",
         "I need new glasses, how much does my plan cover?",
+        # Same "show"/"see" verbs as the browse-style cases above, but
+        # paired with benefits-account context -- must still go to the
+        # agent, not the frame picker.
+        "show me my frame allowance",
+        "can you show my frame coverage",
+        "show me my frame copay",
     ],
 )
 def test_benefits_questions_are_not_misdetected(text):
@@ -96,3 +112,44 @@ def test_more_frames_requests_are_detected(text):
 )
 def test_unrelated_questions_are_not_more_frames_requests(text):
     assert is_more_frames_request(text) is False
+
+
+def test_frame_cost_breakdown_fully_covered_when_under_allowance():
+    sara = get_member_profile_impl("M001")  # $200 frame allowance, eligible
+    breakdown = frame_cost_breakdown({"price_usd": 150}, sara)
+    assert breakdown == {
+        "eligible": True,
+        "allowance": 200,
+        "price": 150,
+        "out_of_pocket": 0,
+        "fully_covered": True,
+    }
+
+
+def test_frame_cost_breakdown_partial_out_of_pocket_when_over_allowance():
+    sara = get_member_profile_impl("M001")  # $200 frame allowance
+    breakdown = frame_cost_breakdown({"price_usd": 260}, sara)
+    assert breakdown["allowance"] == 200
+    assert breakdown["out_of_pocket"] == 60
+    assert breakdown["fully_covered"] is False
+
+
+def test_frame_cost_breakdown_priya_not_eligible_this_year():
+    """Priya (M005) already used contacts this period -- VSP plans cover
+    contacts or frames, not both, so her frame allowance isn't available
+    regardless of which frame she's looking at."""
+    priya = get_member_profile_impl("M005")
+    breakdown = frame_cost_breakdown({"price_usd": 100}, priya)
+    assert breakdown["eligible"] is False
+    assert breakdown["allowance"] == 0
+    assert breakdown["out_of_pocket"] == 100
+    assert breakdown["fully_covered"] is False
+
+
+def test_frame_cost_breakdown_member_with_no_frame_allowance_used_field():
+    """Robert (M006) has no "frame_allowance_used" key at all -- must
+    default to eligible, not crash."""
+    robert = get_member_profile_impl("M006")
+    breakdown = frame_cost_breakdown({"price_usd": 50}, robert)
+    assert breakdown["eligible"] is True
+    assert breakdown["allowance"] == robert["frame_allowance"]

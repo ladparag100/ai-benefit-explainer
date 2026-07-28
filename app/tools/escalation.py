@@ -36,4 +36,15 @@ def handoff_to_human(tool_context: ToolContext, reason: str, transcript_summary:
             needs, so a human doesn't have to re-read the whole chat.
     """
     member_id = tool_context.state.get("member_id") or "unknown"
-    return handoff_to_human_impl(member_id, reason, transcript_summary)
+    result = handoff_to_human_impl(member_id, reason, transcript_summary)
+
+    # Same reasoning as app/tools/id_card.py's "pdf_path" stash: this tool
+    # runs inside escalation_agent, which the supervisor calls via AgentTool
+    # -- AgentTool only merges the specialist's final text back up, so this
+    # dict never reaches the supervisor's own event stream on its own.
+    # Session state does reach it, via AgentTool's explicit state_delta
+    # forwarding, which is why the ticket is stashed here instead -- a plain
+    # key, not "temp:"-prefixed (see id_card.py for why that prefix breaks
+    # forwarding on the installed google-adk version).
+    tool_context.state["escalation_ticket"] = result
+    return result

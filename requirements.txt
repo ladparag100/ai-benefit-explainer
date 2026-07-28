@@ -17,4 +17,10 @@ streamlit
 reportlab
 pydantic
 
+# Guardrails: local PII detection/redaction, no external service or API key.
+# Needs the en_core_web_sm spaCy model too -- see Dockerfile / README setup.
+presidio-analyzer
+presidio-anonymizer
+spacy
+
 pytest
