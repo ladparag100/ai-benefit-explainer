@@ -38,3 +38,15 @@ def test_robert_retinal_imaging_special_coverage():
 def test_plan_details_merged_in():
     profile = get_member_profile_impl("M001")
     assert profile["plan_details"]["network"] == "VSP Signature (Premier Edge)"
+
+
+def test_sara_has_two_dependents():
+    profile = get_member_profile_impl("M001")
+    names = [dep["name"] for dep in profile["dependents"]]
+    assert names == ["Ethan Kim", "Daniel Kim"]
+
+
+def test_robert_has_spouse_dependent():
+    profile = get_member_profile_impl("M006")
+    names = [dep["name"] for dep in profile["dependents"]]
+    assert names == ["Linda Nguyen"]

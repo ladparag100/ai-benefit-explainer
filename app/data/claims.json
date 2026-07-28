@@ -1,11 +1,47 @@
 [
   {
+    "member_id": "M001",
+    "date": "2024-09-01",
+    "provider": "Dr. Angela Ruiz, OD",
+    "service": "WellVision Exam",
+    "plan_paid": 90,
+    "member_paid": 10,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M001",
+    "date": "2024-09-08",
+    "provider": "Lakeshore Optical",
+    "service": "Frames",
+    "plan_paid": 200,
+    "member_paid": 0,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M002",
+    "date": "2022-06-01",
+    "provider": "Dr. Marcus Reed, OD",
+    "service": "WellVision Exam",
+    "plan_paid": 100,
+    "member_paid": 15,
+    "status": "Processed"
+  },
+  {
     "member_id": "M002",
     "date": "2024-07-12",
     "provider": "Dr. Marcus Reed, OD",
     "service": "WellVision Exam + frames + lenses",
     "plan_paid": 338,
     "member_paid": 74,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M005",
+    "date": "2024-01-15",
+    "provider": "Dr. Lauren Ito, OD",
+    "service": "WellVision Exam + frames",
+    "plan_paid": 210,
+    "member_paid": 20,
     "status": "Processed"
   },
   {

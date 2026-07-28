@@ -18,6 +18,20 @@ def test_sara_son_dependent_card():
     assert Path(result["file_path"]).exists()
 
 
+def test_sara_spouse_dependent_card():
+    result = generate_id_card_pdf_impl("M001", dependent_name="Daniel")
+    assert result["holder"] == "Daniel Kim"
+    assert result["id_number"] == "VSP-0001-3841-02"
+    assert Path(result["file_path"]).exists()
+
+
+def test_robert_spouse_dependent_card():
+    result = generate_id_card_pdf_impl("M006", dependent_name="Linda")
+    assert result["holder"] == "Linda Nguyen"
+    assert result["id_number"] == "VSP-0006-4477-01"
+    assert Path(result["file_path"]).exists()
+
+
 def test_unknown_dependent_returns_error():
     result = generate_id_card_pdf_impl("M001", dependent_name="Nobody")
     assert "error" in result

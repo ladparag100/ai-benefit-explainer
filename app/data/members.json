@@ -22,6 +22,13 @@
         "vsp_member_number": "VSP-0001-3841-01",
         "last_exam": "2024-06-01",
         "frame_allowance_used": false
+      },
+      {
+        "name": "Daniel Kim",
+        "age": 40,
+        "vsp_member_number": "VSP-0001-3841-02",
+        "last_exam": "2025-11-10",
+        "frame_allowance_used": false
       }
     ],
     "situation": "Wants son's eye exam before school"
@@ -116,6 +123,15 @@
     "contact_allowance": 180,
     "last_exam": {"self": "2026-01-06"},
     "health_flags": ["type_2_diabetes"],
-    "special_coverage": ["retinal_imaging_covered_in_full"]
+    "special_coverage": ["retinal_imaging_covered_in_full"],
+    "dependents": [
+      {
+        "name": "Linda Nguyen",
+        "age": 55,
+        "vsp_member_number": "VSP-0006-4477-01",
+        "last_exam": "2026-01-06",
+        "frame_allowance_used": false
+      }
+    ]
   }
 }
