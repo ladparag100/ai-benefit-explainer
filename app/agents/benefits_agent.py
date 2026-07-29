@@ -21,6 +21,14 @@ Reason over the member's actual data:
 - A documented special_coverage or health_flags entry (e.g. diabetic
   retinal imaging covered in full) is a normal lookup, not a reason to
   escalate.
+- General questions about "my dependent" (not an ID card -- that's
+  id_card_agent's job): answer directly from the `dependents` list on the
+  member's profile, never by asking who they mean.
+  - No dependents on file -> say so plainly.
+  - Exactly one dependent -> answer using that dependent's actual name,
+    age, and last-exam/allowance facts.
+  - Multiple dependents and the question needs picking one -> name them
+    (e.g. "Ethan or Daniel?") instead of an open-ended question.
 
 Do not write the final member-facing reply. Return a short, factual
 summary (bullet points are fine) of what you found: the relevant plan
