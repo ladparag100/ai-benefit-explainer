@@ -79,7 +79,7 @@ _RECOMMENDATION_PHRASES = (
 # just as easily mean "show me my frame allowance". Only treated as a
 # browse-the-catalog request when none of _BENEFITS_CONTEXT_WORDS is also
 # present, so real benefits questions still go to the agent as before.
-_BROWSE_WORDS = ("show", "see", "browse")
+_BROWSE_WORDS = ("show", "see", "browse", "get")
 _BENEFITS_CONTEXT_WORDS = (
     "allowance",
     "benefit",

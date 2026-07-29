@@ -8,6 +8,7 @@ import json
 import sys
 import time
 import uuid
+from datetime import datetime
 from pathlib import Path
 
 # `streamlit run app/main.py` puts this file's own directory (app/) on
@@ -191,14 +192,33 @@ def _render_more_frames(turn: dict, member: dict) -> None:
             st.caption("That's the full catalog for this face shape.")
 
 
+def _format_escalated_at(raw: str) -> str:
+    if not raw:
+        return ""
+    try:
+        dt = datetime.fromisoformat(raw)
+    except ValueError:
+        return raw[:19].replace("T", " ") + " UTC"
+    return dt.strftime("%b %-d, %Y at %-I:%M %p UTC")
+
+
 def _render_escalation_callout(ticket: dict) -> None:
-    reason = str(ticket.get("reason") or "unspecified").replace("_", " ")
+    reason = str(ticket.get("reason") or "unspecified").replace("_", " ").capitalize()
     ticket_id = ticket.get("ticket_id", "unknown")
-    when = str(ticket.get("escalated_at") or "")[:19].replace("T", " ")
-    message = f"**Escalated to a human** — ticket `{ticket_id}` · reason: {reason}"
+    when = _format_escalated_at(str(ticket.get("escalated_at") or ""))
+
+    # st.success renders in green, distinct from the neutral chat bubbles --
+    # a deliberate visual cue that a handoff actually happened, not just
+    # more chat text. "  \n" (two trailing spaces) is a markdown hard break,
+    # so each field lands on its own line inside the one colored box.
+    lines = [
+        "**You're connected with a specialist** -- they'll follow up with full context, so you won't need to repeat anything.",
+        f"**Ticket:** `{ticket_id}`",
+        f"**Reason:** {reason}",
+    ]
     if when:
-        message += f" · logged {when} UTC"
-    st.info(message)
+        lines.append(f"**Logged:** {when}")
+    st.success("  \n".join(lines), icon="🧑‍💼")
 
 
 def _handle_user_message(
