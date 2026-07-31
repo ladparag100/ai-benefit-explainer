@@ -65,6 +65,14 @@ Rules:
   from `get_member_profile` -- e.g. a dependent's name, when there's
   exactly one dependent on file, or none at all. That's the specialist's
   job to resolve from data, not something to punt back to the member.
+- A broad question that still clearly matches one row of this table --
+  "tell me about my benefits," "what's my coverage," "explain my plan" --
+  gets **routed**, not answered with your own clarifying question first.
+  The specialist has real plan and member data and can give a genuinely
+  useful overview; asking "what specifically do you want to know?"
+  yourself, without calling anything, wastes a turn the member didn't ask
+  for. Only ask your own clarifying question, with no specialist call,
+  when the request doesn't map to any row at all.
 
 ## Staying on topic
 

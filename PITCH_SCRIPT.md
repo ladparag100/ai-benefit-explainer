@@ -90,3 +90,55 @@ Cut Beat 3 (escalation) first -- Beats 1 and 2 alone still prove both
 "real artifact" and "real reasoning." Never cut the "How this was
 answered" close -- it's the cheapest, highest-credibility moment in the
 whole pitch.
+
+## Production Q&A (2 minutes)
+
+The "how would you actually productionize this" question is close to
+guaranteed. Answer with what's *already true* first, then the honest gap
+-- judges trust "here's exactly what's missing" far more than "it's
+basically done."
+
+**Q: How does this scale beyond a demo?**
+> "It already runs on Cloud Run, so horizontal autoscaling is free. The
+> real gap is session storage -- it's in-memory per instance right now,
+> so a conversation can lose context if two requests land on different
+> instances. That's a known, scoped fix: swap in a persistent session
+> store. Same story for the RAG index -- it's on ephemeral `/tmp` today,
+> so multiple instances would each reindex independently; production
+> wants that on a shared store."
+
+**Q: What about auth and real member data?**
+> "Today the member picker is a dropdown -- fine for a demo with fake
+> data, not a login system. Production needs real member auth tied to
+> actual VSP accounts before this touches real data, full stop."
+
+**Q: What guardrails are actually in place?**
+> "Three layers, already built and deployed: Gemini's safety filters,
+> local PII redaction before anything hits our logs, and prompt-injection
+> screening that blocks a bad request before it even reaches the model --
+> all without a paid third-party API. The honest gap: those currently
+> only wrap the supervisor, not the six specialists underneath it, and
+> there's no automated check yet that a reply's dollar amounts actually
+> trace back to a tool call versus the model just sounding confident."
+
+**Q: How do you handle cost and quota at scale?**
+> "We're deliberately on the flash-tier models, not pro, to stay inside
+> free-tier quota during the hackathon. Production would mean a real
+> Vertex quota increase, usage-based budget alerts, and caching for the
+> repeat questions -- plan comparisons don't need a fresh Gemini call
+> every time."
+
+**Q: What's the testing and deployment story?**
+> "91 unit tests today, all offline -- no live GCP calls, so they run in
+> under two seconds and can't rack up API cost. What's missing is CI --
+> right now a human runs pytest and deploys by hand. A GitHub Actions
+> workflow gating merges on that test suite, with auto-deploy to Cloud
+> Run on top, is the concrete next step, not a maybe."
+
+**Q: Is this HIPAA-compliant / ready for real health data?**
+> "Not today, and I won't pretend otherwise. Vertex AI is HIPAA-eligible
+> under a signed BAA with Google Cloud, which is the real path -- but no
+> BAA is signed, there's no access audit trail beyond what Cloud Logging
+> gives for free, and the PII redaction we built is a safety net for logs,
+> not a compliance control. That's real work before this is anywhere near
+> production member data, and I'd rather say that plainly than oversell it."
