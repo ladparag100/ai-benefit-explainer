@@ -6,6 +6,7 @@ Run with: streamlit run app/main.py
 import asyncio
 import json
 import sys
+import textwrap
 import time
 import uuid
 from datetime import datetime
@@ -47,6 +48,65 @@ from app.observability import trace_turn
 from app.speech import transcribe_audio
 
 st.set_page_config(page_title="VSP Benefits Explainer", page_icon="\U0001f453", layout="centered")
+
+
+def _inject_style() -> None:
+    """Loads the display/body typeface (the .streamlit/config.toml theme
+    only sets the CSS font-family *name* -- the actual font file still has
+    to come from somewhere) and a small CSS layer for the handful of things
+    theme.toml can't reach: the hero banner, chat bubble spacing, and frame
+    cards. Targets Streamlit's documented `data-testid` hooks rather than
+    internal class names, since those are the stable, versioned-safe way to
+    style built-in components.
+    """
+    # Two Markdown gotchas both matter here, or this silently renders as
+    # visible text instead of being applied as HTML/CSS:
+    # 1. textwrap.dedent -- a line indented 4+ spaces is a literal code
+    #    block in Markdown, so this has to be dedented to column 0.
+    # 2. No blank lines anywhere inside the HTML region -- Streamlit's
+    #    unsafe_allow_html passthrough doesn't implement CommonMark's rule
+    #    that a <style>/<script> block continues past blank lines; it ends
+    #    the raw-HTML region at the first one, and everything after that
+    #    point gets parsed as a new Markdown paragraph (and shown as text).
+    st.markdown(
+        textwrap.dedent(
+            """
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <style>
+        html, body, [class*="css"] { font-family: 'Plus Jakarta Sans', -apple-system, 'Segoe UI', sans-serif; }
+        .block-container { max-width: 640px; padding-top: 1.6rem; padding-bottom: 1.5rem; }
+        section[data-testid="stSidebar"] .block-container { padding-top: 1.6rem; }
+        .vsp-hero {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 12px;
+            background: var(--secondary-background-color);
+            border: 1px solid var(--border-color, rgba(128,128,128,0.18));
+            margin-bottom: 0.75rem;
+        }
+        .vsp-hero .vsp-icon { font-size: 1.25rem; line-height: 1; flex: none; }
+        .vsp-hero h1 { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.005em; margin: 0; line-height: 1.25; }
+        .vsp-hero p { margin: 0; font-size: 0.72rem; opacity: 0.65; line-height: 1.2; }
+        [data-testid="stChatMessage"] { border-radius: 14px; padding: 0.05rem 0.3rem; gap: 0.5rem; }
+        [data-testid="stChatMessageAvatarUser"], [data-testid="stChatMessageAvatarAssistant"] { border-radius: 8px; width: 1.75rem; height: 1.75rem; }
+        [data-testid="stChatMessage"] p { font-size: 0.92rem; margin-bottom: 0.4rem; }
+        [data-testid="stButton"] button, [data-testid="stDownloadButton"] button { font-weight: 600; letter-spacing: 0.01em; padding: 0.3rem 0.9rem; font-size: 0.85rem; }
+        [data-testid="stExpander"] { border-radius: 12px; font-size: 0.85rem; }
+        [data-testid="stVerticalBlockBorderWrapper"] { transition: box-shadow 0.15s ease, transform 0.1s ease; }
+        [data-testid="stVerticalBlockBorderWrapper"]:hover { box-shadow: 0 8px 20px rgba(18, 26, 36, 0.08); transform: translateY(-1px); }
+        [data-testid="stImage"] img { border-radius: 10px; }
+        @media (prefers-reduced-motion: reduce) {
+            [data-testid="stVerticalBlockBorderWrapper"] { transition: none; }
+        }
+        </style>
+        """
+        ),
+        unsafe_allow_html=True,
+    )
 
 
 @st.cache_resource
@@ -142,7 +202,7 @@ def _render_download(pdf_path: str, key: str) -> None:
 def _render_frame_grid(frames: list, member: dict) -> None:
     columns = st.columns(len(frames))
     for column, frame in zip(columns, frames):
-        with column:
+        with column, st.container(border=True):
             st.image(str(frame_image_path(frame)), use_container_width=True)
             st.markdown(f"**{frame['name']}**")
             st.caption(f"{frame['style']} · {frame['material']}")
@@ -352,8 +412,33 @@ def _handle_user_message(
 MEMBERS = _load_members_for_ui()
 MEMBER_IDS = list(MEMBERS.keys())
 
-st.title("\U0001f453 VSP Benefits Explainer")
-st.caption("Multi-agent prototype -- Google ADK supervisor + specialists, Gemini on Vertex AI")
+# Shown as quick-start buttons only before the first message of a
+# conversation (see the empty-chat_history check below) -- one per
+# specialist that's demoable without extra member-specific setup, so a new
+# user can "lean in" instead of facing a blank input box.
+SUGGESTED_PROMPTS = [
+    "Can I get my ID card?",
+    "Am I due for new glasses?",
+    "Find a doctor near me",
+    "What's the status of my last claim?",
+    "When's my next payment due?",
+]
+
+_inject_style()
+st.markdown(
+    textwrap.dedent(
+        """
+    <div class="vsp-hero">
+        <div class="vsp-icon">\U0001f453</div>
+        <div>
+            <h1>VSP Benefits Explainer</h1>
+            <p>Multi-agent prototype &middot; Google ADK supervisor + specialists &middot; Gemini on Vertex AI</p>
+        </div>
+    </div>
+    """
+    ),
+    unsafe_allow_html=True,
+)
 
 with st.sidebar:
     st.header("Member")
@@ -400,6 +485,24 @@ for idx, turn in enumerate(chat_history):
         if turn.get("debug"):
             with st.expander("How this was answered"):
                 st.write(turn["debug"])
+
+if not chat_history:
+    st.caption("Try asking:")
+    prompt_cols = st.columns(len(SUGGESTED_PROMPTS))
+    for i, suggested_text in enumerate(SUGGESTED_PROMPTS):
+        with prompt_cols[i]:
+            if st.button(suggested_text, key=f"suggested-{member_id}-{generation}-{i}", use_container_width=True):
+                _handle_user_message(
+                    chat_history,
+                    suggested_text,
+                    suggested_text,
+                    member_id=member_id,
+                    member=member,
+                    generation=generation,
+                    session_id=session_id,
+                    runner=runner,
+                    session_service=session_service,
+                )
 
 # accept_audio=True puts a mic icon directly inside the chat input box
 # itself (not a separate control above it) -- recording and submitting

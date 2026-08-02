@@ -1,0 +1,41 @@
+# Custom theme -- "optical clarity": a clear lens-blue accent on a soft,
+# cool-neutral ground (never pure white/black -- see the light/dark
+# variants below), paired with Plus Jakarta Sans (loaded via a <link> in
+# app/main.py; this file alone only sets the CSS font-family name, not
+# the actual font file).
+
+[theme]
+base = "light"
+font = "'Plus Jakarta Sans', -apple-system, 'Segoe UI', sans-serif"
+headingFont = "'Plus Jakarta Sans', -apple-system, 'Segoe UI', sans-serif"
+headingFontWeights = [800, 700, 700]
+baseFontSize = 15
+baseRadius = "large"
+buttonRadius = "full"
+showWidgetBorder = true
+
+[theme.light]
+primaryColor = "#1E5FA8"
+backgroundColor = "#F7F9FC"
+secondaryBackgroundColor = "#EDF2F8"
+textColor = "#121A24"
+borderColor = "#D7E0E8"
+greenColor = "#2E7D5B"
+linkColor = "#1E5FA8"
+
+[theme.light.sidebar]
+backgroundColor = "#EDF2F8"
+borderColor = "#D7E0E8"
+
+[theme.dark]
+primaryColor = "#7FB2EC"
+backgroundColor = "#0E1520"
+secondaryBackgroundColor = "#161F2C"
+textColor = "#E7EDF3"
+borderColor = "#263140"
+greenColor = "#6FCF9E"
+linkColor = "#7FB2EC"
+
+[theme.dark.sidebar]
+backgroundColor = "#161F2C"
+borderColor = "#263140"
