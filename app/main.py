@@ -421,7 +421,7 @@ SUGGESTED_PROMPTS = [
     "Am I due for new glasses?",
     "Find a doctor near me",
     "What's the status of my last claim?",
-    "When's my next payment due?",
+    "Can you suggest some frames for me?",
 ]
 
 _inject_style()
@@ -489,20 +489,27 @@ for idx, turn in enumerate(chat_history):
 if not chat_history:
     st.caption("Try asking:")
     prompt_cols = st.columns(len(SUGGESTED_PROMPTS))
+    clicked_prompt = None
     for i, suggested_text in enumerate(SUGGESTED_PROMPTS):
         with prompt_cols[i]:
             if st.button(suggested_text, key=f"suggested-{member_id}-{generation}-{i}", use_container_width=True):
-                _handle_user_message(
-                    chat_history,
-                    suggested_text,
-                    suggested_text,
-                    member_id=member_id,
-                    member=member,
-                    generation=generation,
-                    session_id=session_id,
-                    runner=runner,
-                    session_service=session_service,
-                )
+                clicked_prompt = suggested_text
+    # Handled outside the `with prompt_cols[i]:` block on purpose -- a
+    # st.chat_message rendered while still inside a column context stays
+    # confined to that column's width instead of spanning the full chat
+    # area, which is exactly the layout bug this caused before.
+    if clicked_prompt:
+        _handle_user_message(
+            chat_history,
+            clicked_prompt,
+            clicked_prompt,
+            member_id=member_id,
+            member=member,
+            generation=generation,
+            session_id=session_id,
+            runner=runner,
+            session_service=session_service,
+        )
 
 # accept_audio=True puts a mic icon directly inside the chat input box
 # itself (not a separate control above it) -- recording and submitting
