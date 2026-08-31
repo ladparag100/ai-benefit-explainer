@@ -1,4 +1,4 @@
-"""Shared paths and model configuration for the VSP Benefits Explainer.
+"""Shared paths and model configuration for the AI Benefit Explainer.
 
 Every value here is overridable via environment variable so the same code
 runs unchanged locally, in Cloud Shell, and on Cloud Run.
@@ -59,4 +59,4 @@ SUPERVISOR_MODEL = os.environ.get("VSP_SUPERVISOR_MODEL", "gemini-flash-latest")
 SPECIALIST_MODEL = os.environ.get("VSP_SPECIALIST_MODEL", "gemini-flash-latest")
 EMBEDDING_MODEL = os.environ.get("VSP_EMBEDDING_MODEL", "gemini-embedding-001")
 
-APP_NAME = "vsp-benefits-explainer"
+APP_NAME = "ai-benefit-explainer"

@@ -1,4 +1,4 @@
-# VSP Benefits Explainer
+# AI Benefit Explainer
 
 A multi-agent, Google-first prototype for the VSP AI-assisted benefits
 explainer hackathon. A supervisor agent routes each member question to one
@@ -58,7 +58,7 @@ first time you run it:
 ## Local setup
 
 ```bash
-cd vsp-benefits-explainer
+cd ai-benefit-explainer
 python3 -m venv .venv && source .venv/bin/activate
 pip install -U -r requirements.txt
 
@@ -154,7 +154,7 @@ comes with `gcloud` already authenticated to your account):
 
 ```bash
 git clone <your-repo-url>
-cd vsp-benefits-explainer
+cd ai-benefit-explainer
 python3 -m venv .venv && source .venv/bin/activate
 pip install -U -r requirements.txt
 gcloud config set project your-project-id

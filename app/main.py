@@ -1,4 +1,4 @@
-"""Streamlit chat UI for the VSP Benefits Explainer.
+"""Streamlit chat UI for the AI Benefit Explainer.
 
 Run with: streamlit run app/main.py
 """
@@ -47,7 +47,7 @@ from app.frames import (
 from app.observability import trace_turn
 from app.speech import transcribe_audio
 
-st.set_page_config(page_title="VSP Benefits Explainer", page_icon="\U0001f453", layout="centered")
+st.set_page_config(page_title="AI Benefit Explainer", page_icon="\U0001f453", layout="centered")
 
 
 def _inject_style() -> None:
@@ -431,7 +431,7 @@ st.markdown(
     <div class="vsp-hero">
         <div class="vsp-icon">\U0001f453</div>
         <div>
-            <h1>VSP Benefits Explainer</h1>
+            <h1>AI Benefit Explainer</h1>
             <p>Multi-agent prototype &middot; Google ADK supervisor + specialists &middot; Gemini on Vertex AI</p>
         </div>
     </div>

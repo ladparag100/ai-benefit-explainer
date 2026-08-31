@@ -51,10 +51,10 @@ def configure_observability() -> None:
         from opentelemetry.sdk.trace import TracerProvider
         from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-        provider = TracerProvider(resource=Resource.create({"service.name": "vsp-benefits-explainer"}))
+        provider = TracerProvider(resource=Resource.create({"service.name": "ai-benefit-explainer"}))
         provider.add_span_processor(BatchSpanProcessor(CloudTraceSpanExporter()))
         trace.set_tracer_provider(provider)
-        _tracer = trace.get_tracer("vsp-benefits-explainer")
+        _tracer = trace.get_tracer("ai-benefit-explainer")
     except Exception:
         logger.warning("Cloud Trace export unavailable; continuing without it.", exc_info=True)
         _tracer = None
@@ -63,7 +63,7 @@ def configure_observability() -> None:
         import google.cloud.logging as cloud_logging
 
         client = cloud_logging.Client()
-        _cloud_logger = client.logger("vsp-benefits-explainer")
+        _cloud_logger = client.logger("ai-benefit-explainer")
     except Exception:
         logger.warning("Cloud Logging export unavailable; falling back to local logs only.", exc_info=True)
         _cloud_logger = None
