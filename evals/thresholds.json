@@ -1,0 +1,10 @@
+{
+  "_comment": "Minimum pass rates (0-1) per metric for --gate. leakage is a hard zero-tolerance gate. Raise these as the baseline improves; never lower one to make a PR pass.",
+  "routing": 0.95,
+  "trajectory": 0.90,
+  "facts": 0.95,
+  "outcome": 0.95,
+  "format": 0.90,
+  "leakage": 1.0,
+  "run_errors_max": 0
+}

@@ -14,3 +14,7 @@ app/generated/*.pdf
 .idea/
 
 .claude/settings.local.json
+
+# Eval run outputs (fixtures + datasets ARE committed; they are deterministic)
+evals/reports/
+evals/.generated/

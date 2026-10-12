@@ -1,0 +1,1112 @@
+{
+  "M001": {
+    "member_id": "M001",
+    "vsp_member_number": "VSP-0001-3841",
+    "name": "Sara Kim",
+    "age": 38,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Acme Corp",
+    "coverage_type": "Family",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": "2024-09-01"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Ethan Kim",
+        "age": 12,
+        "vsp_member_number": "VSP-0001-3841-01",
+        "last_exam": "2024-06-01",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Daniel Kim",
+        "age": 40,
+        "vsp_member_number": "VSP-0001-3841-02",
+        "last_exam": "2025-11-10",
+        "frame_allowance_used": false
+      }
+    ],
+    "situation": "Wants son's eye exam before school"
+  },
+  "M002": {
+    "member_id": "M002",
+    "vsp_member_number": "VSP-0002-7712",
+    "name": "Maria Lopez",
+    "age": 42,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Beacon Health Systems",
+    "coverage_type": "Member Only",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": "2024-07-01"
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "last_used": "2024-07-12"
+    }
+  },
+  "M003": {
+    "member_id": "M003",
+    "vsp_member_number": "VSP-0003-2205",
+    "name": "James Ochoa",
+    "age": 27,
+    "zip": "60601",
+    "plan": "Advantage",
+    "employer": "Northlake Manufacturing",
+    "coverage_type": "Member Only",
+    "effective_date": "2026-05-01",
+    "copays": {
+      "exam": 20,
+      "materials": 25
+    },
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false
+    }
+  },
+  "M004": {
+    "member_id": "M004",
+    "vsp_member_number": "VSP-0004-9036",
+    "name": "David Chen",
+    "age": 51,
+    "zip": "60601",
+    "plan": "Enhanced Advantage",
+    "employer": "Self-purchased",
+    "coverage_type": "Member Only",
+    "individual_plan": true,
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 220,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 180,
+    "billing": {
+      "premium": 34.78,
+      "autopay_day": 15,
+      "last_payment": "2026-09-15",
+      "last_payment_status": "successful"
+    }
+  },
+  "M005": {
+    "member_id": "M005",
+    "vsp_member_number": "VSP-0005-6118",
+    "name": "Priya Patel",
+    "age": 34,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Meridian Bank",
+    "coverage_type": "Member Only",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": "2026-02-01"
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-08"
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    }
+  },
+  "M006": {
+    "member_id": "M006",
+    "vsp_member_number": "VSP-0006-4477",
+    "name": "Robert Nguyen",
+    "age": 58,
+    "zip": "60601",
+    "plan": "Enhanced Advantage",
+    "employer": "Acme Corp",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25,
+      "medical_eye_care": 20
+    },
+    "frame_allowance": 220,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 180,
+    "last_exam": {
+      "self": "2026-01-06"
+    },
+    "health_flags": [
+      "type_2_diabetes"
+    ],
+    "special_coverage": [
+      "retinal_imaging_covered_in_full"
+    ],
+    "dependents": [
+      {
+        "name": "Linda Nguyen",
+        "age": 55,
+        "vsp_member_number": "VSP-0006-4477-01",
+        "last_exam": "2026-01-06",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-001": {
+    "member_id": "SYN-001",
+    "vsp_member_number": "VSP-9001-3056",
+    "name": "Talia Kessler",
+    "age": 57,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Meridian Bank",
+    "coverage_type": "Family",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": "2026-01-15"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Milo Kessler",
+        "age": 9,
+        "vsp_member_number": "VSP-9001-3056-01",
+        "last_exam": "2025-07-04",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Ada Kessler",
+        "age": 9,
+        "vsp_member_number": "VSP-9001-3056-02",
+        "last_exam": "2025-01-07",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-002": {
+    "member_id": "SYN-002",
+    "vsp_member_number": "VSP-9002-3659",
+    "name": "Rowan Okafor",
+    "age": 58,
+    "zip": "60601",
+    "plan": "Enhanced Advantage",
+    "employer": "Beacon Health Systems",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-07-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 220,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 180,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Riley Okafor",
+        "age": 53,
+        "vsp_member_number": "VSP-9002-3659-01",
+        "last_exam": "2025-10-01",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-003": {
+    "member_id": "SYN-003",
+    "vsp_member_number": "VSP-9003-3433",
+    "name": "Talia Moreau",
+    "age": 52,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Acme Corp",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": "2024-11-09"
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Noor Moreau",
+        "age": 59,
+        "vsp_member_number": "VSP-9003-3433-01",
+        "last_exam": "2025-08-16",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-004": {
+    "member_id": "SYN-004",
+    "vsp_member_number": "VSP-9004-6613",
+    "name": "Casey Dunmore",
+    "age": 32,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Lakeview Schools",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": "2026-08-27"
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Elena Dunmore",
+        "age": 63,
+        "vsp_member_number": "VSP-9004-6613-01",
+        "last_exam": "2025-06-05",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-005": {
+    "member_id": "SYN-005",
+    "vsp_member_number": "VSP-9005-5883",
+    "name": "Avery Quintero",
+    "age": 55,
+    "zip": "60601",
+    "plan": "Advantage",
+    "employer": "Self-purchased",
+    "coverage_type": "Family",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 20,
+      "materials": 25
+    },
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "last_exam": {
+      "self": "2024-11-28"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "individual_plan": true,
+    "billing": {
+      "premium": 37.61,
+      "autopay_day": 15,
+      "last_payment": "2026-09-15",
+      "last_payment_status": "successful"
+    },
+    "dependents": [
+      {
+        "name": "Soren Quintero",
+        "age": 64,
+        "vsp_member_number": "VSP-9005-5883-01",
+        "last_exam": "2025-09-11",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Nora Quintero",
+        "age": 12,
+        "vsp_member_number": "VSP-9005-5883-02",
+        "last_exam": "2025-04-26",
+        "frame_allowance_used": true
+      },
+      {
+        "name": "Theo Quintero",
+        "age": 9,
+        "vsp_member_number": "VSP-9005-5883-03",
+        "last_exam": "2025-12-26",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-006": {
+    "member_id": "SYN-006",
+    "vsp_member_number": "VSP-9006-6825",
+    "name": "Oscar Pemberton",
+    "age": 52,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Northlake Manufacturing",
+    "coverage_type": "Member Only",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": "2024-12-01"
+    },
+    "frame_allowance_used": {
+      "self": false
+    }
+  },
+  "SYN-007": {
+    "member_id": "SYN-007",
+    "vsp_member_number": "VSP-9007-8327",
+    "name": "Wen Lindqvist",
+    "age": 28,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Beacon Health Systems",
+    "coverage_type": "Member + Child",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Theo Lindqvist",
+        "age": 6,
+        "vsp_member_number": "VSP-9007-8327-01",
+        "last_exam": "2025-06-07",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-008": {
+    "member_id": "SYN-008",
+    "vsp_member_number": "VSP-9008-8855",
+    "name": "Talia Albright",
+    "age": 29,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Meridian Bank",
+    "coverage_type": "Family",
+    "effective_date": "2026-07-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": "2026-02-27"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Zara Albright",
+        "age": 15,
+        "vsp_member_number": "VSP-9008-8855-01",
+        "last_exam": "2025-04-16",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Milo Albright",
+        "age": 9,
+        "vsp_member_number": "VSP-9008-8855-02",
+        "last_exam": "2025-11-11",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-009": {
+    "member_id": "SYN-009",
+    "vsp_member_number": "VSP-9009-7576",
+    "name": "Kofi Okafor",
+    "age": 23,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Beacon Health Systems",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-07-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Priyanka Okafor",
+        "age": 39,
+        "vsp_member_number": "VSP-9009-7576-01",
+        "last_exam": "2025-10-27",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-010": {
+    "member_id": "SYN-010",
+    "vsp_member_number": "VSP-9010-3554",
+    "name": "Vera Lindqvist",
+    "age": 68,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Self-purchased",
+    "coverage_type": "Member Only",
+    "effective_date": "2026-07-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "individual_plan": true,
+    "billing": {
+      "premium": 16.67,
+      "autopay_day": 5,
+      "last_payment": "2026-09-15",
+      "last_payment_status": "successful"
+    }
+  },
+  "SYN-011": {
+    "member_id": "SYN-011",
+    "vsp_member_number": "VSP-9011-1458",
+    "name": "Rowan Galloway",
+    "age": 70,
+    "zip": "60601",
+    "plan": "Advantage",
+    "employer": "Lakeview Schools",
+    "coverage_type": "Family",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 20,
+      "materials": 25
+    },
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Felix Galloway",
+        "age": 7,
+        "vsp_member_number": "VSP-9011-1458-01",
+        "last_exam": "2025-09-14",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Iris Galloway",
+        "age": 3,
+        "vsp_member_number": "VSP-9011-1458-02",
+        "last_exam": "2025-12-12",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-012": {
+    "member_id": "SYN-012",
+    "vsp_member_number": "VSP-9012-7891",
+    "name": "Vera Quintero",
+    "age": 23,
+    "zip": "60601",
+    "plan": "Advantage",
+    "employer": "Meridian Bank",
+    "coverage_type": "Member + Child",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 20,
+      "materials": 25
+    },
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "last_exam": {
+      "self": "2026-03-17"
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Iris Quintero",
+        "age": 12,
+        "vsp_member_number": "VSP-9012-7891-01",
+        "last_exam": "2025-01-25",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-013": {
+    "member_id": "SYN-013",
+    "vsp_member_number": "VSP-9013-2971",
+    "name": "Casey Pemberton",
+    "age": 55,
+    "zip": "60601",
+    "plan": "Enhanced Advantage",
+    "employer": "Lakeview Schools",
+    "coverage_type": "Member + Child",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 220,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 180,
+    "last_exam": {
+      "self": "2026-06-22"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Leo Pemberton",
+        "age": 15,
+        "vsp_member_number": "VSP-9013-2971-01",
+        "last_exam": "2025-02-18",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-014": {
+    "member_id": "SYN-014",
+    "vsp_member_number": "VSP-9014-1691",
+    "name": "Rowan Iwasaki",
+    "age": 70,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Acme Corp",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Ines Iwasaki",
+        "age": 62,
+        "vsp_member_number": "VSP-9014-1691-01",
+        "last_exam": "2025-10-17",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-015": {
+    "member_id": "SYN-015",
+    "vsp_member_number": "VSP-9015-9737",
+    "name": "Mateo Quintero",
+    "age": 38,
+    "zip": "60601",
+    "plan": "Advantage",
+    "employer": "Self-purchased",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-07-01",
+    "copays": {
+      "exam": 20,
+      "materials": 25
+    },
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "last_exam": {
+      "self": "2026-04-23"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "individual_plan": true,
+    "billing": {
+      "premium": 37.21,
+      "autopay_day": 5,
+      "last_payment": "2026-09-15",
+      "last_payment_status": "successful"
+    },
+    "dependents": [
+      {
+        "name": "Quinn Quintero",
+        "age": 56,
+        "vsp_member_number": "VSP-9015-9737-01",
+        "last_exam": "2025-02-13",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-016": {
+    "member_id": "SYN-016",
+    "vsp_member_number": "VSP-9016-8017",
+    "name": "Morgan Hartigan",
+    "age": 31,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Northlake Manufacturing",
+    "coverage_type": "Member + Child",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Zara Hartigan",
+        "age": 7,
+        "vsp_member_number": "VSP-9016-8017-01",
+        "last_exam": "2025-03-15",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-017": {
+    "member_id": "SYN-017",
+    "vsp_member_number": "VSP-9017-3667",
+    "name": "Kofi Pemberton",
+    "age": 49,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Lakeview Schools",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": "2026-04-06"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Ines Pemberton",
+        "age": 56,
+        "vsp_member_number": "VSP-9017-3667-01",
+        "last_exam": "2025-04-12",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-018": {
+    "member_id": "SYN-018",
+    "vsp_member_number": "VSP-9018-1319",
+    "name": "Yusuf Lindqvist",
+    "age": 23,
+    "zip": "60601",
+    "plan": "Advantage",
+    "employer": "Meridian Bank",
+    "coverage_type": "Member + Child",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 20,
+      "materials": 25
+    },
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "last_exam": {
+      "self": "2026-08-15"
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Ada Lindqvist",
+        "age": 11,
+        "vsp_member_number": "VSP-9018-1319-01",
+        "last_exam": "2025-10-10",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-019": {
+    "member_id": "SYN-019",
+    "vsp_member_number": "VSP-9019-4744",
+    "name": "Morgan Dunmore",
+    "age": 33,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Northlake Manufacturing",
+    "coverage_type": "Family",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Oscar Dunmore",
+        "age": 46,
+        "vsp_member_number": "VSP-9019-4744-01",
+        "last_exam": "2025-07-05",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Iris Dunmore",
+        "age": 11,
+        "vsp_member_number": "VSP-9019-4744-02",
+        "last_exam": "2025-10-16",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Leo Dunmore",
+        "age": 4,
+        "vsp_member_number": "VSP-9019-4744-03",
+        "last_exam": "2025-05-02",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-020": {
+    "member_id": "SYN-020",
+    "vsp_member_number": "VSP-9020-5406",
+    "name": "Leila Castellano",
+    "age": 27,
+    "zip": "60601",
+    "plan": "Choice",
+    "employer": "Self-purchased",
+    "coverage_type": "Family",
+    "effective_date": "2026-07-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 180,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 130,
+    "last_exam": {
+      "self": "2024-01-21"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "individual_plan": true,
+    "billing": {
+      "premium": 36.26,
+      "autopay_day": 1,
+      "last_payment": "2026-09-15",
+      "last_payment_status": "successful"
+    },
+    "dependents": [
+      {
+        "name": "Riley Castellano",
+        "age": 59,
+        "vsp_member_number": "VSP-9020-5406-01",
+        "last_exam": "2025-01-11",
+        "frame_allowance_used": false
+      },
+      {
+        "name": "Leo Castellano",
+        "age": 9,
+        "vsp_member_number": "VSP-9020-5406-02",
+        "last_exam": "2025-05-20",
+        "frame_allowance_used": true
+      },
+      {
+        "name": "Nora Castellano",
+        "age": 11,
+        "vsp_member_number": "VSP-9020-5406-03",
+        "last_exam": "2025-12-08",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-021": {
+    "member_id": "SYN-021",
+    "vsp_member_number": "VSP-9021-1825",
+    "name": "Quinn Iwasaki",
+    "age": 55,
+    "zip": "60601",
+    "plan": "Advantage",
+    "employer": "Beacon Health Systems",
+    "coverage_type": "Member + Spouse",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 20,
+      "materials": 25
+    },
+    "frame_allowance": 150,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 120,
+    "last_exam": {
+      "self": "2024-03-07"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Priyanka Iwasaki",
+        "age": 62,
+        "vsp_member_number": "VSP-9021-1825-01",
+        "last_exam": "2025-11-06",
+        "frame_allowance_used": true
+      }
+    ]
+  },
+  "SYN-022": {
+    "member_id": "SYN-022",
+    "vsp_member_number": "VSP-9022-1605",
+    "name": "Avery Iwasaki",
+    "age": 37,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Meridian Bank",
+    "coverage_type": "Member + Child",
+    "effective_date": "2026-01-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": "2024-01-01"
+    },
+    "frame_allowance_used": {
+      "self": false
+    },
+    "dependents": [
+      {
+        "name": "Nora Iwasaki",
+        "age": 13,
+        "vsp_member_number": "VSP-9022-1605-01",
+        "last_exam": "2025-11-14",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-023": {
+    "member_id": "SYN-023",
+    "vsp_member_number": "VSP-9023-9301",
+    "name": "Priyanka Moreau",
+    "age": 34,
+    "zip": "60601",
+    "plan": "Enhanced Advantage",
+    "employer": "Beacon Health Systems",
+    "coverage_type": "Family",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 15,
+      "materials": 25
+    },
+    "frame_allowance": 220,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 180,
+    "last_exam": {
+      "self": "2024-05-23"
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Ines Moreau",
+        "age": 33,
+        "vsp_member_number": "VSP-9023-9301-01",
+        "last_exam": "2025-03-01",
+        "frame_allowance_used": true
+      },
+      {
+        "name": "Zara Moreau",
+        "age": 14,
+        "vsp_member_number": "VSP-9023-9301-02",
+        "last_exam": "2025-05-14",
+        "frame_allowance_used": true
+      },
+      {
+        "name": "Milo Moreau",
+        "age": 4,
+        "vsp_member_number": "VSP-9023-9301-03",
+        "last_exam": "2025-11-27",
+        "frame_allowance_used": false
+      }
+    ]
+  },
+  "SYN-024": {
+    "member_id": "SYN-024",
+    "vsp_member_number": "VSP-9024-4968",
+    "name": "Oscar Jablonski",
+    "age": 32,
+    "zip": "60601",
+    "plan": "Signature",
+    "employer": "Northlake Manufacturing",
+    "coverage_type": "Member + Child",
+    "effective_date": "2026-03-01",
+    "copays": {
+      "exam": 10,
+      "materials": 25
+    },
+    "frame_allowance": 200,
+    "featured_frame_bonus": 20,
+    "contact_allowance": 150,
+    "last_exam": {
+      "self": null
+    },
+    "frame_allowance_used": {
+      "self": false,
+      "eligible_this_year": false
+    },
+    "contact_allowance_used": {
+      "self": true,
+      "used_on": "2026-02-10"
+    },
+    "dependents": [
+      {
+        "name": "Zara Jablonski",
+        "age": 3,
+        "vsp_member_number": "VSP-9024-4968-01",
+        "last_exam": "2025-05-12",
+        "frame_allowance_used": false
+      }
+    ]
+  }
+}

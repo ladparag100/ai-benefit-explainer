@@ -1,0 +1,301 @@
+[
+  {
+    "id": "classic_rectangle_men",
+    "name": "Classic Rectangle",
+    "gender": "men",
+    "material": "Matte black titanium",
+    "style": "Rectangle",
+    "description": "Ultra-thin matte black titanium rectangle with spring hinges -- a lightweight daily-wear classic.",
+    "image": "classic_rectangle_men.png",
+    "face_shapes": [
+      "round",
+      "oval"
+    ],
+    "price_usd": 180
+  },
+  {
+    "id": "elegant_cat_eye_women",
+    "name": "Elegant Cat-Eye",
+    "gender": "women",
+    "material": "Glossy tortoiseshell acetate, gold temples",
+    "style": "Cat-eye",
+    "description": "Refined cat-eye curves in glossy tortoiseshell acetate with slim gold temples.",
+    "image": "elegant_cat_eye_women.png",
+    "face_shapes": [
+      "round",
+      "square",
+      "diamond",
+      "heart"
+    ],
+    "price_usd": 260
+  },
+  {
+    "id": "minimal_round_unisex",
+    "name": "Minimal Round",
+    "gender": "unisex",
+    "material": "Brushed silver titanium",
+    "style": "Round",
+    "description": "Minimalist round titanium frame with ultra-thin rims -- understated and versatile.",
+    "image": "minimal_round_unisex.png",
+    "face_shapes": [
+      "square",
+      "diamond"
+    ],
+    "price_usd": 150
+  },
+  {
+    "id": "transparent_square",
+    "name": "Transparent Square",
+    "gender": "unisex",
+    "material": "Crystal-clear acetate",
+    "style": "Oversized square",
+    "description": "Oversized square silhouette in crystal-clear acetate with polished edges.",
+    "image": "transparent_square.png",
+    "face_shapes": [
+      "round",
+      "oval",
+      "heart",
+      "oblong"
+    ],
+    "price_usd": 140
+  },
+  {
+    "id": "kids_round",
+    "name": "Kids Round",
+    "gender": "kids",
+    "material": "Flexible TR90",
+    "style": "Round",
+    "description": "Durable, flexible TR90 round frame in turquoise with yellow temple tips, built for active kids.",
+    "image": "kids_round.png",
+    "face_shapes": [
+      "round",
+      "oval",
+      "square"
+    ],
+    "price_usd": 70
+  },
+  {
+    "id": "hexagonal_fashion",
+    "name": "Hexagonal Fashion",
+    "gender": "unisex",
+    "material": "Transparent lavender acetate",
+    "style": "Hexagon",
+    "description": "Bold geometric hexagon in transparent lavender acetate for a fashion-forward look.",
+    "image": "hexagonal_fashion.png",
+    "face_shapes": [
+      "round",
+      "oval"
+    ],
+    "price_usd": 130
+  },
+  {
+    "id": "rimless_executive",
+    "name": "Rimless Executive",
+    "gender": "unisex",
+    "material": "Gold titanium",
+    "style": "Rimless",
+    "description": "Minimalist rimless construction with gold titanium temples for an understated, executive look.",
+    "image": "rimless_executive.png",
+    "face_shapes": [
+      "oval",
+      "round",
+      "square",
+      "oblong"
+    ],
+    "price_usd": 320
+  },
+  {
+    "id": "vintage_browline",
+    "name": "Vintage Browline",
+    "gender": "unisex",
+    "material": "Tortoiseshell acetate, gold metal rims",
+    "style": "Browline",
+    "description": "Classic browline with dark tortoiseshell acetate top and polished gold lower rims.",
+    "image": "vintage_browline.png",
+    "face_shapes": [
+      "oval",
+      "diamond",
+      "oblong"
+    ],
+    "price_usd": 280
+  },
+  {
+    "id": "modern_aviator",
+    "name": "Modern Aviator",
+    "gender": "unisex",
+    "material": "Brushed gunmetal titanium",
+    "style": "Aviator",
+    "description": "Brushed gunmetal aviator with a double bridge and slim temples -- a modern take on a classic.",
+    "image": "modern_aviator.png",
+    "face_shapes": [
+      "heart",
+      "diamond",
+      "square"
+    ],
+    "price_usd": 210
+  },
+  {
+    "id": "oversized_fashion",
+    "name": "Oversized Fashion",
+    "gender": "women",
+    "material": "Glossy emerald green acetate",
+    "style": "Oversized square",
+    "description": "Luxury oversized square in glossy emerald green acetate with sculpted temples.",
+    "image": "oversized_fashion.png",
+    "face_shapes": [
+      "oval",
+      "round",
+      "heart"
+    ],
+    "price_usd": 250
+  },
+  {
+    "id": "senior_comfort",
+    "name": "Senior Comfort",
+    "gender": "unisex",
+    "material": "Champagne titanium",
+    "style": "Rectangle",
+    "description": "Lightweight champagne titanium rectangle with ergonomic nose pads and flexible hinges for all-day comfort.",
+    "image": "senior_comfort.png",
+    "face_shapes": [
+      "oval",
+      "round",
+      "oblong"
+    ],
+    "price_usd": 160
+  },
+  {
+    "id": "wood_hybrid",
+    "name": "Wood Hybrid",
+    "gender": "unisex",
+    "material": "Matte black acetate, walnut wood temples",
+    "style": "Rectangle hybrid",
+    "description": "Matte black acetate front paired with handcrafted walnut wood temples for a natural, premium look.",
+    "image": "wood_hybrid.png",
+    "face_shapes": [
+      "oval",
+      "square",
+      "oblong"
+    ],
+    "price_usd": 290
+  },
+  {
+    "id": "carbon_fiber_sport",
+    "name": "Carbon Fiber Sport",
+    "gender": "unisex",
+    "material": "Carbon fiber, matte black TR90",
+    "style": "Sport",
+    "description": "Aerodynamic carbon fiber and TR90 sport frame built for an active lifestyle.",
+    "image": "carbon_fiber_sport.png",
+    "face_shapes": [
+      "oval",
+      "round",
+      "square"
+    ],
+    "price_usd": 220
+  },
+  {
+    "id": "octagonal_rose_gold",
+    "name": "Octagonal Rose Gold",
+    "gender": "unisex",
+    "material": "Rose gold titanium",
+    "style": "Octagon",
+    "description": "Ultra-thin rose gold titanium octagon with minimalist styling.",
+    "image": "octagonal_rose_gold.png",
+    "face_shapes": [
+      "round",
+      "oval",
+      "square"
+    ],
+    "price_usd": 340
+  },
+  {
+    "id": "soft_oval",
+    "name": "Soft Oval",
+    "gender": "unisex",
+    "material": "Transparent smoky gray acetate",
+    "style": "Oval",
+    "description": "Sophisticated soft oval in transparent smoky gray acetate with a polished premium finish.",
+    "image": "soft_oval.png",
+    "face_shapes": [
+      "square",
+      "diamond"
+    ],
+    "price_usd": 150
+  },
+  {
+    "id": "butterfly_luxury",
+    "name": "Butterfly Luxury Frame",
+    "gender": "women",
+    "material": "Deep burgundy acetate",
+    "style": "Butterfly",
+    "description": "Sculpted butterfly silhouette in deep burgundy acetate with flowing, elegant curves.",
+    "image": "butterfly_luxury.png",
+    "face_shapes": [
+      "oval",
+      "heart",
+      "diamond"
+    ],
+    "price_usd": 400
+  },
+  {
+    "id": "double_bridge_square_titanium",
+    "name": "Double-Bridge Square Titanium",
+    "gender": "unisex",
+    "material": "Matte gunmetal titanium",
+    "style": "Square",
+    "description": "Industrial-minimalist square frame with a premium titanium double bridge and geometric temples.",
+    "image": "double_bridge_square_titanium.png",
+    "face_shapes": [
+      "round",
+      "oval",
+      "oblong"
+    ],
+    "price_usd": 230
+  },
+  {
+    "id": "japanese_minimalist_p3",
+    "name": "Japanese Minimalist P3 Frame",
+    "gender": "unisex",
+    "material": "Translucent olive green acetate, titanium temples",
+    "style": "P3",
+    "description": "Handcrafted P3 silhouette -- rounded top, subtly flattened bottom -- in translucent olive green acetate.",
+    "image": "japanese_minimalist_p3.png",
+    "face_shapes": [
+      "square",
+      "diamond",
+      "heart"
+    ],
+    "price_usd": 200
+  },
+  {
+    "id": "bold_chunky_fashion",
+    "name": "Bold Chunky Fashion Frame",
+    "gender": "unisex",
+    "material": "Glossy ivory acetate",
+    "style": "Chunky rectangle",
+    "description": "Contemporary chunky rectangle in glossy ivory acetate with thick beveled edges and oversized temples.",
+    "image": "bold_chunky_fashion.png",
+    "face_shapes": [
+      "oval",
+      "round",
+      "oblong"
+    ],
+    "price_usd": 170
+  },
+  {
+    "id": "retro_pilot_optical",
+    "name": "Retro Pilot Optical Frame",
+    "gender": "unisex",
+    "material": "Champagne gold metal, tortoiseshell acetate tips",
+    "style": "Pilot",
+    "description": "Vintage-inspired teardrop pilot frame in champagne gold with engraved bridge detailing and tortoiseshell temple tips.",
+    "image": "retro_pilot_optical.png",
+    "face_shapes": [
+      "heart",
+      "diamond",
+      "square"
+    ],
+    "price_usd": 310
+  }
+]

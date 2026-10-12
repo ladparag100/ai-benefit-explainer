@@ -35,8 +35,10 @@ load_dotenv(REPO_ROOT / ".env")
 # launching streamlit at all.
 os.environ.setdefault("PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION", "python")
 
-DATA_DIR = APP_DIR / "data"
-FRAMES_DIR = DATA_DIR / "frames"
+# Overridable so the eval harness (evals/) can point the tools at synthetic
+# fixtures instead of the demo data.
+DATA_DIR = Path(os.environ.get("VSP_DATA_DIR", str(APP_DIR / "data")))
+FRAMES_DIR = APP_DIR / "data" / "frames"
 KNOWLEDGE_DIR = APP_DIR / "rag" / "knowledge"
 PROMPTS_DIR = APP_DIR / "prompts"
 

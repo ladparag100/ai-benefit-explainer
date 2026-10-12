@@ -1,0 +1,218 @@
+[
+  {
+    "member_id": "M001",
+    "date": "2024-09-01",
+    "provider": "Dr. Angela Ruiz, OD",
+    "service": "WellVision Exam",
+    "plan_paid": 90,
+    "member_paid": 10,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M001",
+    "date": "2024-09-08",
+    "provider": "Lakeshore Optical",
+    "service": "Frames",
+    "plan_paid": 200,
+    "member_paid": 0,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M002",
+    "date": "2022-06-01",
+    "provider": "Dr. Marcus Reed, OD",
+    "service": "WellVision Exam",
+    "plan_paid": 100,
+    "member_paid": 15,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M002",
+    "date": "2024-07-12",
+    "provider": "Dr. Marcus Reed, OD",
+    "service": "WellVision Exam + frames + lenses",
+    "plan_paid": 338,
+    "member_paid": 74,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M005",
+    "date": "2024-01-15",
+    "provider": "Dr. Lauren Ito, OD",
+    "service": "WellVision Exam + frames",
+    "plan_paid": 210,
+    "member_paid": 20,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M005",
+    "date": "2026-02-08",
+    "provider": "Dr. Rachel Torres, OD",
+    "service": "WellVision Exam + contact lens fitting + contacts",
+    "plan_paid": 285,
+    "member_paid": 100,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M006",
+    "date": "2026-01-06",
+    "provider": "Dr. Ellen Whitfield, OD",
+    "service": "WellVision Exam + retinal imaging (diabetes)",
+    "plan_paid": 253,
+    "member_paid": 15,
+    "status": "Processed"
+  },
+  {
+    "member_id": "M006",
+    "date": "2026-04-02",
+    "provider": "Dr. Ellen Whitfield, OD",
+    "service": "Essential Medical Eye Care exam (dry eye)",
+    "plan_paid": 165,
+    "member_paid": 20,
+    "status": "Pending"
+  },
+  {
+    "member_id": "M004",
+    "date": "2026-06-15",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 165,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-002",
+    "date": "2026-08-20",
+    "provider": "Costco Optical - Lincoln Park",
+    "service": "WellVision Exam + frames",
+    "plan_paid": 315,
+    "member_paid": 15,
+    "status": "Pending"
+  },
+  {
+    "member_id": "SYN-003",
+    "date": "2026-06-02",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 160,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-005",
+    "date": "2026-06-02",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 160,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-006",
+    "date": "2026-06-02",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 50,
+    "member_paid": 160,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-007",
+    "date": "2026-06-02",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 160,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-008",
+    "date": "2026-08-20",
+    "provider": "Walmart Vision Center",
+    "service": "WellVision Exam + frames",
+    "plan_paid": 295,
+    "member_paid": 10,
+    "status": "Pending"
+  },
+  {
+    "member_id": "SYN-009",
+    "date": "2026-08-20",
+    "provider": "Walmart Vision Center",
+    "service": "WellVision Exam + frames",
+    "plan_paid": 275,
+    "member_paid": 15,
+    "status": "Pending"
+  },
+  {
+    "member_id": "SYN-011",
+    "date": "2026-06-02",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 160,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-012",
+    "date": "2026-02-14",
+    "provider": "Costco Optical - Lincoln Park",
+    "service": "WellVision Exam",
+    "plan_paid": 95,
+    "member_paid": 20,
+    "status": "Processed"
+  },
+  {
+    "member_id": "SYN-014",
+    "date": "2026-02-14",
+    "provider": "Costco Optical - Lincoln Park",
+    "service": "WellVision Exam",
+    "plan_paid": 95,
+    "member_paid": 15,
+    "status": "Processed"
+  },
+  {
+    "member_id": "SYN-016",
+    "date": "2026-02-14",
+    "provider": "Dr. Rachel Torres, OD",
+    "service": "WellVision Exam",
+    "plan_paid": 95,
+    "member_paid": 15,
+    "status": "Processed"
+  },
+  {
+    "member_id": "SYN-019",
+    "date": "2026-02-14",
+    "provider": "Dr. Marcus Reed, OD",
+    "service": "WellVision Exam",
+    "plan_paid": 95,
+    "member_paid": 10,
+    "status": "Processed"
+  },
+  {
+    "member_id": "SYN-021",
+    "date": "2026-06-02",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 160,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-023",
+    "date": "2026-06-02",
+    "provider": "Out-of-network provider",
+    "service": "WellVision Exam",
+    "plan_paid": 45,
+    "member_paid": 160,
+    "status": "Processed (OON reimbursement)"
+  },
+  {
+    "member_id": "SYN-024",
+    "date": "2026-08-20",
+    "provider": "Costco Optical - Lincoln Park",
+    "service": "WellVision Exam + frames",
+    "plan_paid": 295,
+    "member_paid": 10,
+    "status": "Pending"
+  }
+]

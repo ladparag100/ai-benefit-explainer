@@ -24,3 +24,6 @@ presidio-anonymizer
 spacy
 
 pytest
+
+# Eval results export (evals/exporters/langsmith_export.py); optional.
+langsmith
